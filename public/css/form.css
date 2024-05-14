@@ -1,0 +1,42 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: rgb(98, 180, 98);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* Занимает всю ширину контейнера */
+    max-width: 400px;
+    /* Максимальная ширина формы */
+    margin: 20px auto;
+}
+
+/* Стилизация полей ввода */
+form input {
+    width: 100%;
+    /* Занимает всю доступную ширину */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Чтобы padding не увеличивал размер поля */
+}
+
+/* Стилизация кнопки */
+form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}

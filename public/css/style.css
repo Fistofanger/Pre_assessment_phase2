@@ -1,0 +1,144 @@
+/* @font-face {
+    font-family: "Miamanueva Regular";
+    src: url("../fonts/miamanueva.ttf");
+} */
+
+body {
+  background: white;
+  /* font-family: 'Miamanueva Regular'; */
+  width: 1500px;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.TeaCard img,
+.TeaPageCard img {
+  display: block;
+
+  /* Устраняет проблемы с отступами */
+  width: 80%;
+  height: 200px;
+  /* Высота изображения */
+  object-fit: cover;
+  /* Обрезает или масштабирует изображение, чтобы оно заполняло элемент */
+}
+
+.TeaCard,
+.TeaPageCard {
+  border-radius: 10px;
+  border: 3px solid rgba(0, 0, 255, 0.2);
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  margin: 20px;
+  padding: 10px;
+  background: rgb(98, 180, 98);
+}
+
+.emblem {
+  width: 800px;
+  border-radius: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+.btn-edit a,
+.btn-update a,
+.btn-back a {
+  text-decoration: none;
+  color: white;
+}
+
+.OneCommentForm {
+  align-items: center;
+  padding: 20px;
+  background: rgb(98, 180, 98);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  /* Занимает всю ширину контейнера */
+  max-width: 400px;
+  /* Максимальная ширина формы */
+  margin: 20px auto;
+}
+
+.avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 240px;
+  height: 240px;
+}
+
+.Comments img {
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+}
+
+.Comments {
+  gap: 0;
+}
+
+.OneCommentForm {
+  justify-content: space-between;
+}
+
+.OneCommentForm p {
+  text-align: center;
+}
+
+.TeaPageConteiner {
+  width: 600px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profileCard {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.textProfile {
+  font-size: 20px;
+}
+
+.LinkInInfo {
+  color: blue;
+}
+
+.avaImg {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+}

@@ -1,0 +1,57 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(98, 180, 98);
+  /* Цвет фона */
+  padding: 10px 20px;
+  /* border-bottom: 2px solid #e0e0e0; */
+  /* Горизонтальная линия под меню */
+  width: 1500px;
+  height: 70px;
+}
+
+.navbar a,
+.navbar div {
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+.link {
+  margin-right: 20px;
+  font-size: 16px;
+  position: relative;
+}
+
+.link a {
+  color: #333;
+  /* Цвет текста ссылок */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link a:hover {
+  color: #8c5e39;
+  /* Цвет текста ссылок при наведении */
+}
+
+/* Эффект чайного листа при наведении на ссылку */
+.link a:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: url('tea-leaf.png') no-repeat;
+  background-size: cover;
+  transform: translateX(-50%);
+}
+
+/* Стиль для "Привет, имя пользователя" */
+.greeting {
+  font-size: 14px;
+  color: #666;
+  margin-right: 10px;
+}
