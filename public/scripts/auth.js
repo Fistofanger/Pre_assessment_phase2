@@ -1,103 +1,95 @@
 const registartionForm = document.querySelector('.Registration');
 const authorizationForm = document.querySelector('.Authorization');
 
-const formUpdateProfile = document.querySelector('.FormUpdateProfile');
-
 if (registartionForm) {
   registartionForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const { userName, password, email, avatar } = e.target;
+    try {
+      e.preventDefault();
+      const { userName, password, email, roleSelect } = e.target;
+      console.log(
+        userName.value,
+        password.value,
+        email.value,
+        typeof roleSelect.value
+      );
+      if (roleSelect.value === '') {
+        alert('Select your role');
+        return;
+      }
 
-    if (
-      userName.value.trim() === '' ||
-      password.value.trim() === '' ||
-      email.value.trim() === ''
-    ) {
-      alert('Заполните все поля');
-      return;
-    }
+      if (password.value.includes(' ')) {
+        alert('No space in password');
+        return;
+      }
 
-    const reqData = new FormData();
+      if (
+        userName.value.trim() === '' ||
+        password.value.trim() === '' ||
+        email.value.trim() === ''
+      ) {
+        alert('Enter all inputs');
+        return;
+      }
 
-    reqData.append('userName', userName.value);
-    reqData.append('password', password.value);
-    reqData.append('email', email.value);
-    reqData.append('avatar', avatar.files[0]);
+      const res = await fetch('/api/auth/registration', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          userName: userName.value,
+          password: password.value,
+          email: email.value,
+          role: roleSelect.value,
+        }),
+      });
 
-    const res = await fetch('/api/auth/registration', {
-      method: 'POST',
-      body: reqData,
-    });
-    const data = await res.json();
+      const data = await res.json();
 
-    // console.log(data);
-
-    if (data.message === 'success') {
-      window.location.assign('/');
+      if (data.message === 'success') {
+        window.location.assign('/');
+      }
+    } catch ({ message }) {
+      alert(`Error: ${message}`);
     }
   });
 }
-
 if (authorizationForm) {
-  authorizationForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const { password, email } = event.target;
+  authorizationForm.addEventListener('submit', async (e) => {
+    try {
+      e.preventDefault();
+      const { password, email } = e.target;
 
-    if (password.value.trim() === '' || email.value.trim() === '') {
-      alert('Заполните все поля');
-      return;
-    }
+      if (password.value.includes(' ')) {
+        alert('No space in password');
+        return;
+      }
 
-    const res = await fetch('/api/auth/authorization', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        password: password.value,
-        email: email.value,
-      }),
-    });
+      if (password.value.trim() === '' || email.value.trim() === '') {
+        alert('Enter all inputs');
+        return;
+      }
 
-    const data = await res.json();
+      const res = await fetch('/api/auth/authorization', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          password: password.value,
+          email: email.value,
+        }),
+      });
 
-    if (data.message === 'success') {
-      window.location.assign('/');
-    } else {
-      alert('Неверные данные');
-    }
-  });
-}
+      const data = await res.json();
 
-if (formUpdateProfile) {
-  formUpdateProfile.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const { userName, email, avatar } = event.target;
-    const { userid } = event.target.dataset;
-
-    // console.log(userName.value, email.value, avatar);
-    // console.log(userid);
-
-    if (userName.value.trim() === '' || email.value.trim() === '') {
-      alert('Заполните все поля');
-      return;
-    }
-
-    const reqData = new FormData();
-
-    reqData.append('userName', userName.value);
-    reqData.append('email', email.value);
-    reqData.append('avatar', avatar.files[0]);
-
-    const res = await fetch(`/api/auth/${userid}/update`, {
-      method: 'PUT',
-      body: reqData,
-    });
-
-    const data = await res.json();
-
-    if (data.message === 'success') {
-      window.location.assign(`/profile/${userid}`);
+      if (data.message === 'success') {
+        window.location.assign('/');
+      } else {
+        alert('Wrong data, enter correct information');
+      }
+    } catch ({ message }) {
+      alert(`Error: ${message}`);
     }
   });
 }
