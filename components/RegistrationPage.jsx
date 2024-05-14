@@ -6,7 +6,7 @@ function RegistrationPage({ title, user }) {
     <Layout title={title} user={user}>
       <h2>Registartion</h2>
       <p>
-        Please enter your name, email, password and select role:seller or bayer
+        Please enter your name, email, password and select role: seller or bayer
       </p>
       <form
         action="/api/auth/registration"
@@ -35,7 +35,13 @@ function RegistrationPage({ title, user }) {
           // minlength="2"
           // maxlength="32"
         />
-        {/* <input type="file" multiple placeholder="avatar" name="avatar" /> */}
+        <br />
+        <select name="roleSelect" id="roleSelect">
+          <option value="">-- select your role --</option>
+          <option value="seller">seller</option>
+          <option value="bayer">bayer</option>
+        </select>
+        <br />
         <button type="submit">add</button>
       </form>
     </Layout>
