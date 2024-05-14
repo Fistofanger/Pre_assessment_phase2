@@ -5,20 +5,20 @@ const AuthorizationPage = require('../../components/AuthorizationPage.jsx');
 router.get('/registration', (req, res) => {
   try {
     res.send(
-      res.renderComponent(RegistrationPage, { title: 'Registartion Page' }),
+      res.renderComponent(RegistrationPage, { title: 'Registartion Page' })
     );
   } catch ({ message }) {
-    res.status(500).json('Ошибочка регистрации');
+    res.status(500).json({ error: message });
   }
 });
 
 router.get('/authorization', (req, res) => {
   try {
     res.send(
-      res.renderComponent(AuthorizationPage, { title: 'Authorization Page' }),
+      res.renderComponent(AuthorizationPage, { title: 'Authorization Page' })
     );
   } catch ({ message }) {
-    res.status(500).json('Ошибка авторизации');
+    res.status(500).json({ error: message });
   }
 });
 

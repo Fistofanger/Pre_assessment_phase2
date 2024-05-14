@@ -4,7 +4,7 @@ const bcrytp = require('bcrypt');
 const jwtConfig = require('../../config/jwtConfig');
 const generateToken = require('../../utils/authutils');
 
-const { User, Favorite } = require('../../db/models');
+const { User } = require('../../db/models');
 
 router.post('/registration', async (req, res) => {
   try {

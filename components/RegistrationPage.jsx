@@ -13,28 +13,9 @@ function RegistrationPage({ title, user }) {
         method="post"
         className="Registration"
       >
-        <input
-          type="text"
-          placeholder="userName"
-          name="userName"
-          // required
-          // minlength="2"
-          // maxlength="32"
-        />
-        <input
-          type="email"
-          placeholder="email"
-          name="email"
-          // required
-        />
-        <input
-          type="password"
-          placeholder="password"
-          name="password"
-          // required
-          // minlength="2"
-          // maxlength="32"
-        />
+        <input type="text" placeholder="userName" name="userName" />
+        <input type="email" placeholder="email" name="email" />
+        <input type="password" placeholder="password" name="password" />
         <br />
         <select name="roleSelect" id="roleSelect">
           <option value="">-- select your role --</option>

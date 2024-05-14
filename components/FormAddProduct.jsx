@@ -1,47 +1,17 @@
-const React = require('react')
+const React = require('react');
 
-function FormAddTea() {
-    return (
-        <form action="/api/teas" method="POST" className="FormAddTea">
-            <input
-                type="text"
-                placeholder="Название чая"
-                name="teaName"
-                required
-                minlength="2"
-            />
-            <input type="file" multiple name="teaImg" />
-            <input
-                type="text"
-                placeholder="Сорт чая"
-                name="teaType"
-                required
-                minlength="2"
-            />
-            <input
-                type="text"
-                placeholder="Координаты"
-                name="teaLocation"
-                required
-                minlength="10"
-            />
-            <input
-                type="text"
-                placeholder="Регион"
-                name="teaRegion"
-                required
-                minlength="2"
-            />
-            <input
-                type="text"
-                placeholder="Описание"
-                name="teaDescription"
-                required
-                minlength="2"
-            />
-            <button type="submit">Добавить чай</button>
-        </form>
-    )
+function FormAddProduct() {
+  return (
+    <form action="/api/catalog" method="POST" className="FormAddProduct">
+      <input type="text" placeholder="title" name="title" />
+      <input type="text" placeholder="vendor" name="vendor" />
+      <input type="text" placeholder="description" name="description" />
+      <input type="text" placeholder="linkToPhoto" name="image" />
+      <input type="text" placeholder="price" name="price" />
+      <input type="text" placeholder="quantity" name="quantity" />
+      <button type="submit">Добавить товар</button>
+    </form>
+  );
 }
 
-module.exports = FormAddTea
+module.exports = FormAddProduct;

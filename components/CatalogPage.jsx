@@ -1,27 +1,28 @@
 const React = require('react');
 const Layout = require('./Layout');
-const FormAddTea = require('./FormAddProduct');
-// const TeaCard = require('./TeaCard');
+const FormAddProduct = require('./FormAddProduct');
+const ProductCard = require('./ProductCard');
 
-function TeasPage({ title, user, teaDataArray }) {
+function CatalogPage({ title, user, productDataArray }) {
   return (
     <Layout title={title} user={user}>
-      <h1>Чайная карта</h1>
-      {user ? (
-        <FormAddTea />
+      <h1>Catalog page</h1>
+      {user.role === 'seller' ? (
+        <FormAddProduct />
       ) : (
-        <p>
-          ☝️ Для добавления своего любимого чая необходимо зарегистрироваться
-          или авторизироваться{' '}
-        </p>
+        <p>☝️ Adding products is available only to users with role - seller</p>
       )}
-      <div className="Teas grid">
-        {teaDataArray.map((teaData) => (
-          <TeaCard teaData={teaData} user={user} key={teaData.id} />
+      <div className="Products grid">
+        {productDataArray.map((productData) => (
+          <ProductCard
+            productData={productData}
+            user={user}
+            key={productData.id}
+          />
         ))}
       </div>
     </Layout>
   );
 }
 
-module.exports = TeasPage;
+module.exports = CatalogPage;

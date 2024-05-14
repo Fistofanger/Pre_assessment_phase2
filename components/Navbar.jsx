@@ -6,38 +6,38 @@ function Navbar({ user }) {
       {user ? (
         <div className="navbar">
           <div className="link">
-            <a href="/">Главная</a>
+            <a href="/">Main page</a>
           </div>
           <div className="link">
-            <a href="/catalog">Каталог товаров</a>
+            <a href="/catalog">Catalog</a>
           </div>
           <div className="link">
-            <a href="/cart">Корзина</a>
+            <a href="/cart">Cart</a>
           </div>
           <div className="link">
-            {` Привет
+            {` Hello
               ${user.userName}`}
           </div>
           <div className="link">
-            <a href={`/profile/${user.id}`}>Профиль</a>
+            <a href={`/profile/${user.id}`}>Profile</a>
           </div>
           <div className="link">
-            <a href="/logout">Выход</a>
+            <a href="/logout">Logout</a>
           </div>
         </div>
       ) : (
         <div className="navbar">
           <div className="link">
-            <a href="/">Главная</a>
+            <a href="/">Main page</a>
           </div>
           <div className="link">
-            <a href="/catalog">Каталог товаров</a>
+            <a href="/catalog">Catalog</a>
           </div>
           <div className="link">
-            <a href="/auth/authorization">Авторизация</a>
+            <a href="/auth/authorization">Authorization</a>
           </div>
           <div className="link">
-            <a href="/auth/registration">Регистрация</a>
+            <a href="/auth/registration">Registration</a>
           </div>
         </div>
       )}

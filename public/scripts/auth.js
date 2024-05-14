@@ -6,12 +6,7 @@ if (registartionForm) {
     try {
       e.preventDefault();
       const { userName, password, email, roleSelect } = e.target;
-      console.log(
-        userName.value,
-        password.value,
-        email.value,
-        typeof roleSelect.value
-      );
+      
       if (roleSelect.value === '') {
         alert('Select your role');
         return;
